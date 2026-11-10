@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestión de citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="formulario">
+    <ion-card-header>
+      <ion-card-title>Crea una nueva cita</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="formulario" (ngSubmit)="agregarCita()">
+
+        <ion-item>
+          <ion-input
+            label="Cita"
+            labelPlacement="stacked"
+            formControlName="frase"
+            placeholder="Escribe una frase">
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger"
+          *ngIf="formulario.get('frase')?.touched &&
+                 formulario.get('frase')?.invalid">
+          <p class="error">
+            La frase es obligatoria y debe tener
+            al menos 5 caracteres.
+          </p>
+        </ion-text>
+
+        <ion-item>
+          <ion-input
+            label="Autor"
+            labelPlacement="stacked"
+            formControlName="autor"
+            placeholder="Nombre del autor">
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger"
+          *ngIf="formulario.get('autor')?.touched &&
+                 formulario.get('autor')?.invalid">
+          <p class="error">
+            El autor es obligatorio y debe tener
+            al menos 2 caracteres.
+          </p>
+        </ion-text>
+
+        <ion-button
+          type="submit"
+          expand="block"
+          [disabled]="formulario.invalid">
+          AGREGAR +
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  
+<ion-list>
+  <ion-item *ngFor="let cita of citas">
+
+    <ion-label>
+      <h2>{{ cita.frase }}</h2>
+      <p>{{ cita.autor }}</p>
+    </ion-label>
+
+    <ion-button
+      fill="clear"
+      color="primary"
+      slot="end"
+      (click)="eliminarCita(cita.id)">
+
+      <ion-icon name="trash-outline"></ion-icon>
+
+    </ion-button>
+
+  </ion-item>
+</ion-list>
+</ion-content>

@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+}
+ion-card {
+  width: 100%;
+  margin: 0;
+  background: #eeeeee;
+  box-shadow: none;
+  border-radius: 4px;
+}
+
+.frase {
+  color: #3880ff;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.autor {
+  text-align: right;
+  color: #444444;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.boton-eliminar {
+  display: block;
+  margin-left: auto;
+  width: fit-content;
+  margin-top: 10px;
+}

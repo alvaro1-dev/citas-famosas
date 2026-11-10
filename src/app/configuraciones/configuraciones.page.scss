@@ -1,0 +1,20 @@
+ion-content {
+  --background: #ffffff;
+}
+
+ion-list {
+  max-width: 520px;
+  margin: 12px auto;
+  background: #ffffff;
+}
+
+ion-item {
+  --background: #ffffff;
+  --color: #333333;
+  font-size: 14px;
+}
+
+ion-toggle {
+  --track-background-checked: #a5c4ff;
+  --handle-background-checked: #3880ff;
+}

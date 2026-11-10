@@ -1,0 +1,26 @@
+<ion-card *ngIf="cita">
+
+  <ion-card-content>
+
+    <p class="frase">
+      {{ cita.frase }}
+    </p>
+
+    <p class="autor">
+      {{ cita.autor }}
+    </p>
+
+    <ion-button
+      *ngIf="permitirEliminar"
+      fill="clear"
+      color="primary"
+      class="boton-eliminar"
+      (click)="solicitarEliminacion()">
+
+      <ion-icon name="trash-outline"></ion-icon>
+
+    </ion-button>
+
+  </ion-card-content>
+
+</ion-card>

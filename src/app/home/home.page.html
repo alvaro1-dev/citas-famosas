@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/configuraciones">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Componente reutilizable de citas -->
+  <div class="contenedor-cita">
+
+    <app-cita-card
+      [cita]="cita"
+      [permitirEliminar]="permitirEliminar"
+      (eliminar)="eliminarCita($event)">
+    </app-cita-card>
+
+    <p *ngIf="!cita">
+      No hay citas disponibles.
+    </p>
+
+  </div>
+
+  <!-- Navegación hacia Gestión de Citas -->
+  <div class="boton-gestion">
+    <ion-button routerLink="/gestion-citas">
+      GESTIONAR CITAS
+    </ion-button>
+  </div>
+
+  <!-- Botón para mostrar otra cita aleatoria -->
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed">
+
+    <ion-fab-button (click)="nuevaCita()">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
+
+</ion-content>
